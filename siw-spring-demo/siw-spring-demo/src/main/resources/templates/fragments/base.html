@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles(title)">
+<meta charset="UTF-8" />
+<link th:href="@{/css/my-style.css}" rel="stylesheet">
+<title th:text="${title}"></title>
+</head>
+<body>
+
+	<header th:fragment="intestazione">
+		<h1>Centro Polisportivo Nepi</h1>
+	</header>
+	<nav th:fragment="menu">
+			<ul>
+			<li><a href="base.html">Home</a></li>
+			<li><a href="prenotazioni.html">Prenotazioni</a></li>
+			<li><a href="corsi.html">Corsi</a></li>
+			<li><a href="centro.html">Il centro</a>
+			<li><a href="about.html">Chi siamo</a></li>
+
+		</ul>
+	</nav>
+
+
+
+	<p>Go to the next page to see fragments in action</p>
+	<aside>
+		<div>This is a sidebar</div>
+	</aside>
+	<div class="another">This is another sidebar</div>
+
+
+
+	<footer th:fragment="fondo">
+		<a th:href="@{/}">Home</a>
+	</footer>
+</body>
+</html>
