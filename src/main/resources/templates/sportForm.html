@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title=#{title.sportForm})">
+</head>
+<body class="text-center">
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="m-5">
+		<h4 style="font-size:40px;">INSERISCI I DATI DI UNO SPORT</h4>
+	</div>
+	<div class="form m-5 p-5">
+	<form th:action="@{/admin/sport}" method="POST" th:object="${sport}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+		<div class="row">
+			<div class="col">
+				<span>Nome:</span> <span><input type="text" class="form-control text-center "
+					th:field="*{nome}" placeholder="Basket" /></span> <span
+					th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			<div class="col">
+				<span>Numero max giocatori:</span> <span><input type="text" class="form-control text-center "
+					th:field="*{numGiocatoriMax}" /></span> <span
+					th:if="${#fields.hasErrors('numGiocatoriMax')}"
+					th:errors="*{numGiocatoriMax}"></span>
+			</div>
+		</div>
+		<div class="mt-5">
+  <button type="submit" class="btn btn-primary">Conferma</button>
+		
+		</div>
+	</form>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>
