@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import it.uniroma3.siw.spring.model.User;
 import it.uniroma3.siw.spring.repository.UserRepository;
 
-
-
-
+/**
+ * The UserService handles logic for Users.
+ */
 @Service
 public class UserService {
 
@@ -56,12 +56,4 @@ public class UserService {
             result.add(user);
         return result;
     }
-
-    @Transactional
-	public boolean alreadyExists(User o) {
-		Optional<User> optional = this.userRepository.findByNomeAndCognome(o.getNome(),o.getCognome());
-		if(optional.isPresent())
-			return true;
-		return false;
-	}
 }
